@@ -1,0 +1,21 @@
+# .gitignore for FastAPI projects
+
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore environment-specific files
+.env
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+venv/
+
+# Ignore the generated API documentation
+docs/_build/
+
+# Ignore database files
+*.sqlite3
