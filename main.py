@@ -30,18 +30,14 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 @app.post("/items/")
-async def create_item(item: Item, image: UploadFile = File(...)):
+async def create_item(item: Item):
     collection = db.get_collection("items")
     result = collection.insert_one(item.dict())
 
     collection = db.get_collection("items")
-    image_path = f"uploads/{image.filename}"
-    with open(image_path, "wb") as f:
-        f.write(image.file.read())
 
     # Get the name from the item before inserting it
     item_data = item.dict()
-    item_data["image_path"] = image_path
     item_name = item_data.get("name")
 
 
