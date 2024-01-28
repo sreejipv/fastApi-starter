@@ -19,6 +19,7 @@ class MongoDB:
 # Use environment variables for sensitive information
 MONGO_URI = os.environ.get('MONGO_URI')
 
+print("MONGO_URI:", MONGO_URI)
 db_url = MONGO_URI
 db_name = "mabuz"
 
