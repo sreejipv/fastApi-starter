@@ -1,6 +1,8 @@
 import os
 from pymongo import MongoClient
+from dotenv import load_dotenv
 from pymongo.errors import ConnectionFailure
+load_dotenv()
 
 class MongoDB:
     def __init__(self, database_url, database_name):
@@ -16,6 +18,7 @@ class MongoDB:
 
 # Use environment variables for sensitive information
 MONGO_URI = os.environ.get('MONGO_URI')
+
 db_url = MONGO_URI
 db_name = "mabuz"
 
@@ -23,6 +26,7 @@ db_name = "mabuz"
 try:
     db = MongoDB(db_url, db_name)
     print("MongoDB connection successful.")
+
 except RuntimeError as e:
     print(f"Error: {e}")
 

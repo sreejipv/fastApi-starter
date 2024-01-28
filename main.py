@@ -32,18 +32,13 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 @app.post("/items/")
 async def create_item(item: Item):
     collection = db.get_collection("items")
-    result = collection.insert_one(item.dict())
 
-    collection = db.get_collection("items")
 
     # Get the name from the item before inserting it
     item_data = item.dict()
     item_name = item_data.get("name")
-
-
-
-    result = collection.insert_one(item_data)
-
+    result = collection.insert_one(item.dict())
+    
     if result.acknowledged:
         inserted_id = str(result.inserted_id)
 

@@ -19,7 +19,6 @@ JWT_REFRESH_SECRET_KEY = os.environ.get('JWT_REFRESH_SECRET_KEY')
 EMAIL_APP_PASSWORD = os.environ.get('EMAIL_APP_PASSWORD')    
 EMAIL_USERNAME = os.environ.get('EMAIL_USERNAME')    
 
-
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
